@@ -21,12 +21,17 @@
         #   contents:
         #     - Sub-description 1.
         #     - Sub-description 2.
-    # - title: Federal teaching diploma
-    #   institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-    #   year: 1900
-    #   description:
-    #     - Description 1.
-    #     - Description 2.
+    - title: Bachelor of Science and Engineering (BSE) in Computer Science
+      institution: University of Michigan, Ann Arbor, United States
+      year: 2020-2022
+      description:
+        - Minor in Mathematics
+        - Worked in [Autonomous Robotic Manipulation Lab (ARM)](https://arm.eecs.umich.edu), supervised by prof. Dmitry Berenson and instructed by Tom Power. I developed the parameterized goal function in the Tom's normalizing flows path sampler. 
+    - title: Bachelor of Science (BS) in Electrical and Computer Engineering
+      institution: Shanghai Jiao Tong University, Shanghai, China
+      year: 2018-2022
+      description:
+        - Worked in CIUS, supervised by prof. Wei Dong instructed by Gang Chen. I finished the project "An Integrated Unmanned Quadruped-Hexarotor System for Flight-Impeded Area Exploration".
 
 # - title: Experience
 #   type: time_table
