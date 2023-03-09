@@ -11,11 +11,13 @@
 - title: Education
   type: time_table
   contents:
-    - title: PhD
+    - title: PhD  in Electrical & Computer Engineering
       institution: Duke University, Durham, United States
       year: 2022-Now
       description:
-        - Supervised by prof. Yiran Chen. 
+        - Supervised by prof. Yiran Chen.
+        - I'm currently working in <a href="https://cei.pratt.duke.edu/">Duke Center of Computational Evolutionary Intelligence (CEI) Lab, co-directed by Professor Yiran Chen and Professor Hai Li</a>. 
+        - My current interest is hardware accelerators and design automation. 
         # - Description 2.
         # - title: Description 3.
         #   contents:
@@ -26,12 +28,15 @@
       year: 2020-2022
       description:
         - Minor in Mathematics
-        - Worked in [Autonomous Robotic Manipulation Lab (ARM)](https://arm.eecs.umich.edu), supervised by prof. Dmitry Berenson and instructed by Tom Power. I developed the parameterized goal function in the Tom's normalizing flows path sampler. 
+        - Worked in <a href="https://arm.eecs.umich.edu">Autonomous Robotic Manipulation Lab (ARM)</a>, supervised by prof. Dmitry Berenson and instructed by Tom Power. I developed the parameterized goal function in the Tom's normalizing flows path sampler. 
+        - My graduation project is developing an autonomous writing robot using the robotics arm. The robot is voice-controlled and is capable to record the user’s speaking English and write accordingly on a whiteboard with marker pen.
     - title: Bachelor of Science (BS) in Electrical and Computer Engineering
       institution: Shanghai Jiao Tong University, Shanghai, China
       year: 2018-2022
       description:
         - Worked in CIUS, supervised by prof. Wei Dong instructed by Gang Chen. I finished the project "An Integrated Unmanned Quadruped-Hexarotor System for Flight-Impeded Area Exploration".
+        - My research at SJTU focuses on designing field robots. I gained many experiences in modeling, planning, and control. 
+        - My graduation project is comparing branch predictors on a RSIV-V five-stage in-order pipeline. The whole implementation is developed in Verilog with Vivado. 
 
 # - title: Experience
 #   type: time_table
