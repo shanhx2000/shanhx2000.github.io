@@ -1,80 +1,49 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
-img: assets/img/12.jpg
+title: K-MPFH
+description: Efficient Point Feature Histogram via K-Means Filtering
+img: assets/img/project_PFH_KMEANS_curvature_selection.png
 importance: 1
-category: work
+category: course
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+It is a course project for EECS498-001 at Umich.
+The detailed report of this project can be found [here](https://drive.google.com/file/d/1L_rue4NSZ71iahpAwQPX-7jez5Xfr-6m/view?usp=sharing). 
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+Registration is known as one topic of point cloud processing which deals with the prob-
+lem of consistently aligning multiple 3D point cloud data views into a complete model[1]. It
+aims to find the relative poses among independently acquired views under a global coordi-
+nate framework. As the relative positions and orientations are obtained, the intersecting areas
+can be firmly overlapped, which is quite useful in 3D object detection, 3D model construction,
+Augmented Reality, and many other 3D vision related areas. The Iterative Closest Point (ICP)
+algorithm is one of the most popular methods for 3D object registration, which is designed to
+find the correspondence between two datasets of points, and solve out the optimal transfor-
+mation by minimizing the distance between fitted point cloud and target point cloud[2]. ICP
+assumes that the correspondence of each point is given.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+However, it is rarely true to have complete point-to-point correspondence in real life sit-
+uations. For example. in the case of the registration of partially overlapping and unorganised
+point clouds without good initial alignment, these methods are not appropriate enough since
+it becomes difficult to find the correspondence. This leads to various approaches to obtain cor-
+respondence by extracting features from datasets. [3] focuses on tradeoff between the error in
+feature values due to noise against the error in positions due to misalignment; [4] considers
+color information as well as 3D information in registration; [5] utilizes the change of geometric
+curvature and approximate normal vector of the surface formed by a point and its neighbour
+to predict the correspondence. In this paper, we would like to implement the registration based
+on the Point Feature Histogram (PFH) algorithm, which focuses on estimating a rigid transfor-
+mation that approximately registers the input datasets[1]. PFH provides a good start for ICP
+algorithm, and has good performance with noisy data.
+
+PFH is motivated by finding correct point-to-point correspondences in real-world noisy
+data scans, and computing rigid transformations that roughly align them using geometric con-
+straints, while its time complexity is inevitably high. To boost the efficiency as well as guarantee
+the high performance, we designed K-Means PFH(K-MPFH) which applies K-Means clustering
+method to first filter useless points. In the following we will first describe the details of imple-
+mentation of PFH, and then explain our unique extensions on PFH, and finally the experiments
+and benchmark of our model.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/project_PFH_KMEANS_experiment_results.png" title="Results of experiments" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
-
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-```html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-```
-{% endraw %}
